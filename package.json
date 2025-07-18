@@ -1,0 +1,29 @@
+{
+  "name": "cicd-yaml-project",
+  "version": "1.0.0",
+  "description": "A Node.js application with CI/CD using Github Actions for YA>",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint",
+    "start": "node index.js",
+    "build": "echo 'No build step required for this project'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endrissuofe/node-cicd-yaml-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/endrissuofe/node-cicd-yaml-project/issues"
+  },
+  "homepage": "https://github.com/endrissuofe/node-cicd-yaml-project#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "chai": "^5.2.1"
+  }
+}

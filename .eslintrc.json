@@ -1,0 +1,27 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:mocha/recommended",
+    "plugin:chai-expect/recommended"
+  ],
+  "plugins": [
+    "mocha",
+    "chai-expect"
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-unused-expressions": "off",
+    "consistent-return": "off",
+    "prefer-arrow-callback": "off",
+    "func-names": "off",
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }]
+  }
+}
