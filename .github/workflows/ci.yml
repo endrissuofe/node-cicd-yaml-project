@@ -1,4 +1,3 @@
-
 name: Node.js CI
 
 on:
@@ -45,7 +44,7 @@ jobs:
 
       - name: Set output value
         id: set-output
-        run: echo "value=hello_from_step" >> $GITHUB_OUTPUT
+        run: echo "value=hello_from_step" >> "$GITHUB_OUTPUT"
 
       - name: Use output from previous step
         run: echo "Received value from previous step: ${{ steps.set-output.outputs.value }}"
