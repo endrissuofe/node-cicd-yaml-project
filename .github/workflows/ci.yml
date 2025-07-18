@@ -12,15 +12,17 @@ env:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     strategy:
       fail-fast: false
       matrix:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -36,15 +38,16 @@ jobs:
         run: npm test
 
       - name: Run linting (only on push to main)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: npm run lint
 
       - name: Use environment variable
         run: echo "Custom variable is $CUSTOM_VAR"
 
       - name: Set output value
-        id: set-output
-        run: echo "value=hello_from_step" >> "$GITHUB_OUTPUT"
+        id: set_output
+        run: |
+          echo "value=hello_from_step" >> "$GITHUB_OUTPUT"
 
       - name: Use output from previous step
-        run: echo "Received value from previous step: ${{ steps.set-output.outputs.value }}"
+        run: echo "Received value from previous step: ${{ steps.set_output.outputs.value }}"
