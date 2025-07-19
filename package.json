@@ -1,29 +1,28 @@
 {
-  "name": "cicd-yaml-project",
+  "name": "node-cicd-yaml-project",
   "version": "1.0.0",
-  "description": "A Node.js application with CI/CD using Github Actions for YA>",
-  "main": "index.js",
+  "description": "A Node.js application with CI/CD using GitHub Actions for YAML course",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
+    "start": "node index.mjs",
     "test": "mocha",
-    "lint": "eslint",
-    "start": "node index.js",
+    "lint": "eslint .",
     "build": "echo 'No build step required for this project'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/endrissuofe/node-cicd-yaml-project.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "Endris",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/endrissuofe/node-cicd-yaml-project/issues"
-  },
-  "homepage": "https://github.com/endrissuofe/node-cicd-yaml-project#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.21.1"
   },
   "devDependencies": {
-    "chai": "^5.2.1"
+    "chai": "^5.1.1",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-chai-expect": "^3.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-mocha": "^10.5.0",
+    "mocha": "^10.7.3",
+    "supertest": "^7.0.0"
   }
 }
