@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import request from 'supertest';
-import app from './index.js';
+import supertest from 'supertest';
+import app from './index.mjs';
 
 describe('CI/CD YAML Demo Tests', function() {
   describe('Unit Tests', function() {
@@ -11,16 +11,12 @@ describe('CI/CD YAML Demo Tests', function() {
   });
 
   describe('Integration Tests - Express App', function() {
-    it('should return 200 and correct response body for GET /', function(done) {
-      request(app)
+    it('should return 200 and correct response body for GET /', async function() {
+      const response = await supertest(app)
         .get('/')
         .expect(200)
-        .expect('Content-Type', /html/)
-        .end((err, res) => {
-          if (err) return done(err);
-          expect(res.text).to.include('<h1>Welcome to My CI/CD YAML Demo</h1>');
-          done();
-        });
+        .expect('Content-Type', /html/);
+      expect(response.text).to.include('<h1>Welcome to My CI/CD YAML Demo</h1>');
     });
   });
 });
