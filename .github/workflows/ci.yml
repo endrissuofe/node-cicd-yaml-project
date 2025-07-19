@@ -33,7 +33,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm test
+        run: npx mocha
 
       - name: Run linting (only on push to main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
