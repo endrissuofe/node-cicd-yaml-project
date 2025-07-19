@@ -38,7 +38,7 @@ jobs:
         run: npm test
 
       - name: Run linting (only on push to main)
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npm run lint
 
       - name: Use environment variable
@@ -46,8 +46,7 @@ jobs:
 
       - name: Set output value
         id: set_output
-        run: |
-          echo "value=hello_from_step" >> "$GITHUB_OUTPUT"
+        run: echo "value=hello_from_step" >> $GITHUB_OUTPUT
 
       - name: Use output from previous step
         run: echo "Received value from previous step: ${{ steps.set_output.outputs.value }}"
