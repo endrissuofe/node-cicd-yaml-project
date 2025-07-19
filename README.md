@@ -120,7 +120,7 @@ The CI pipeline ensures the code is built, tested, and linted across multiple en
    - Checked the GitHub Actions tab for the `CI Pipeline` run.
    - Confirmed all matrix jobs (Node.js 14.x, 16.x, 18.x) passed, including steps for `npm install`, `npm run build`, `npm test`, `npm run lint`, environment variable usage, and step outputs.
 
-   ![CI Workflow Run](img/ci-workflow.png)
+   ![CI Workflow Run](img/ci-worlflown.png)
 
 ## Project Structure
 
@@ -130,7 +130,6 @@ node-cicd-yaml-project/
 │   └── workflows/
 │       └── ci.yml
 ├── img/
-│   ├── repository-creation.png
 │   ├── npm-install.png
 │   ├── project-files.png
 │   ├── local-app-running.png
@@ -140,8 +139,8 @@ node-cicd-yaml-project/
 │   ├── git-push.png
 │   ├── ci-workflow.png
 ├── .eslintrc.json
-├── index.js
-├── test.js
+├── index.mjs
+├── test.mjs
 ├── package.json
 ├── .gitignore
 ├── node_modules/
@@ -158,24 +157,7 @@ node-cicd-yaml-project/
 - **Conditional Execution**: Configured linting to run only on push to the `main` branch.
 - **Code Quality**: Enforced coding standards with ESLint, resolving potential conflicts between Airbnb and Mocha rules.
 
-## Next Steps
 
-- Add deployment to a platform like Heroku using a `deploy.yml` workflow and secrets (e.g., `HEROKU_API_KEY`).
-- Experiment with additional matrix configurations (e.g., Node.js 20.x).
-- Add more complex tests (e.g., edge cases for the Express app).
-- Implement caching for `npm install` to speed up workflows.
-- Explore advanced YAML features like reusable workflows or custom actions.
+## Conclusion
+This project successfully demonstrates how to set up a CI/CD pipeline using GitHub Actions for a Node.js application. It covers the entire process from creating a simple Express.js server, writing tests, configuring ESLint, to automating the build and test processes across multiple Node.js versions. The use of environment variables, step outputs, and conditional execution enhances the workflow's flexibility and efficiency.
 
-## Evidence Screenshots
-
-All screenshots are stored in the `img/` folder:
-
-- : GitHub repository creation.
-- : Terminal output of `npm install`.
-- : Terminal output of `ls -a` showing project files.
-- : Browser showing the Express app at `http://localhost:3000`.
-- : Terminal output of `npm test`.
-- : Terminal output of `npm run lint`.
-- : Editor showing `.github/workflows/ci.yml`.
-- : Terminal output of `git` commands.
-- : GitHub Actions workflow run showing matrix job results. 
